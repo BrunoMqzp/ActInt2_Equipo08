@@ -3,6 +3,8 @@ project(unit_test)
 
 set(CMAKE_CXX_STANDARD 17)
 
+include_directories(${CMAKE_SOURCE_DIR})
+
 set(SOURCES
         main.cpp
 	headertest.h
@@ -10,7 +12,7 @@ set(SOURCES
 )
 
 
-add_executable(unit_test main.cpp)
+add_executable(main ${SOURCES})
 
 # Opciones
 option(ENABLE_TESTING "Enable a Unit Testing build." ON)
