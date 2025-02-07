@@ -130,21 +130,21 @@ int main() {
     // Leer coordenadas
     for (int i = 0; i < N; i++) {
         char c;
-        cin >> c;
+        cin >> c; 
         cin >> centrals[i].first;
-        cin >> c;
+        cin >> c; 
         cin >> centrals[i].second;
-        cin >> c;
+        cin >> c; 
     }
 
     // Leer corrdenadas
     pair<int, int> newHouse;
     char c;
-    cin >> c;
+    cin >> c; 
     cin >> newHouse.first;
-    cin >> c;
+    cin >> c; 
     cin >> newHouse.second;
-    cin >> c;
+    cin >> c; 
 
     // Solución al MST (fibra óptica)
     auto mst = kruskalMST(distances);
