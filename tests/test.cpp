@@ -1,14 +1,8 @@
+// test_main.cpp
 #include <gtest/gtest.h>
-#include <vector>
-#include <utility>
-#include <cmath>
+#include "headertest.h"
 
-// Include the functions to test
-extern std::vector<std::pair<char, char>> kruskalMST(const std::vector<std::vector<double>>& graph);
-extern std::pair<double, std::vector<int>> tsp(const std::vector<std::vector<double>>& graph);
-extern std::pair<int, int> findNearestCentral(std::pair<int, int> newHouse, const std::vector<std::pair<int, int>>& centrals);
-
-// Test Kruskal's MST algorithm
+// Test cases (unchanged)
 TEST(KruskalTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 2, 0, 6, 0},
@@ -29,7 +23,6 @@ TEST(KruskalTest, BasicTest) {
     ASSERT_EQ(result, expected);
 }
 
-// Test TSP algorithm
 TEST(TSPTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 10, 15, 20},
@@ -43,7 +36,6 @@ TEST(TSPTest, BasicTest) {
     ASSERT_NEAR(result.first, expectedCost, 1e-6);
 }
 
-// Test Nearest Central function
 TEST(NearestCentralTest, BasicTest) {
     std::vector<std::pair<int, int>> centrals = {
         {200, 500},

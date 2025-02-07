@@ -3,17 +3,9 @@
 #include <limits>
 #include <cmath>
 #include <algorithm>
+#include "network_optimization.h"
 
 using namespace std;
-
-// Estructura para representar una arista en el grafo
-struct Edge {
-    int u, v;
-    double weight;
-    bool operator<(const Edge& other) const {
-        return weight < other.weight;
-    }
-};
 
 // Función para encontrar el representante de un conjunto en el algoritmo de Kruskal
 int find(vector<int>& parent, int i) {
