@@ -5,6 +5,7 @@ set(CMAKE_CXX_STANDARD 17)
 
 set(SOURCES
         main.cpp
+	headertest.h
 
 )
 
@@ -30,7 +31,7 @@ if(ENABLE_TESTING)
     # Archivos de pruebas
     set(TEST_SOURCES
         tests/test.cpp
-	main.cpp
+	
     )
 
     # Crear ejecutable de pruebas

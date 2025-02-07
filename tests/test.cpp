@@ -1,8 +1,6 @@
-// test_main.cpp
-#include <gtest/gtest.h>
 #include "headertest.h"
+#include <gtest/gtest.h>
 
-// Test cases (unchanged)
 TEST(KruskalTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 2, 0, 6, 0},
@@ -32,7 +30,7 @@ TEST(TSPTest, BasicTest) {
     };
 
     auto result = tsp(graph);
-    double expectedCost = 80; // Known minimum cost for this graph
+    double expectedCost = 80; 
     ASSERT_NEAR(result.first, expectedCost, 1e-6);
 }
 
