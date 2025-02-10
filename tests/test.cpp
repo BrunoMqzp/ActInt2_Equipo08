@@ -15,7 +15,7 @@ TEST(KruskalTest, BasicTest) {
         };
 
     std::vector<std::pair<char, char>> expected = { {'C', 'D'}, {'A', 'B'}, {'B', 'C'} };
-    auto result = kruskalMST(graph);
+    auto result = kruskal_mst(graph);
     EXPECT_TRUE(std::is_permutation(result.begin(), result.end(), expected.begin()));
 }
 
@@ -43,7 +43,7 @@ TEST(NearestCentralTest, BasicTest) {
     };
 
     std::pair<int, int> newHouse = { 400, 300 };
-    auto result = findNearestCentral(newHouse, centrals);
+    auto result = find_nearest_central(newHouse, centrals);
     std::pair<int, int> expected = { 450, 150 };
 
     ASSERT_EQ(result, expected);
