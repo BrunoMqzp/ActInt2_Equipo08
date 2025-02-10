@@ -9,10 +9,11 @@
 
 // Estructura para representar una arista en el grafo
 struct Edge {
-    int u, v;
-    double weight;
+    int u, v; //Inicializacion de variables
+    double weight; //Peso
+//Comparacion usando bool
     bool operator<(const Edge& other) const {
-        return weight < other.weight;
+        return weight < other.weight; //Retorno de resultado si el peso es menor
     }
 };
 
@@ -40,7 +41,7 @@ void union_sets(std::vector<int>& parent, std::vector<int>& rank, int x, int y) 
 }
 
 // Algoritmo de Kruskal para encontrar el árbol de expansión mínima
-std::vector<std::pair<char, char>> kruskalMST(const std::vector<std::vector<double>>& graph) {
+std::vector<std::pair<char, char>> kruskal_mst(const std::vector<std::vector<double>>& graph) {
     int N = graph.size();
     std::vector<Edge> edges;
     std::vector<std::pair<char, char>> result;
@@ -96,7 +97,7 @@ std::pair<double, std::vector<int>> tsp(const std::vector<std::vector<double>>& 
 }
 
 // Búsqueda de la central más cercana
-std::pair<int, int> findNearestCentral(std::pair<int, int> newHouse, const std::vector<std::pair<int, int>>& centrals) {
+std::pair<int, int> find_nearest_central(std::pair<int, int> newHouse, const std::vector<std::pair<int, int>>& centrals) {
     double minDist = std::numeric_limits<double>::max();
     std::pair<int, int> nearestCentral = { -1, -1 };
 
