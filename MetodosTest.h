@@ -63,7 +63,7 @@ std::vector<std::pair<char, char>> kruskalMST(const std::vector<std::vector<doub
     for (const auto& edge : edges) {
         if (find(parent, edge.u) != find(parent, edge.v)) {
             result.push_back({ char('A' + edge.u), char('A' + edge.v) });
-            unionSets(parent, rank, edge.u, edge.v);
+            union_sets(parent, rank, edge.u, edge.v);
         }
     }
     return result;
