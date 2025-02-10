@@ -49,7 +49,7 @@ TEST(NearestCentralTest, BasicTest) {
     ASSERT_EQ(result, expected);
 }
 
-TEST(EdgeTest, CompareEdges) {
+TEST(edge_test, compare_edges) {
     
     Edge edge1{ 1, 2, 10.0 };
     Edge edge2{ 2, 3, 20.0 };
