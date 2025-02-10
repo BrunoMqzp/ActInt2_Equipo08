@@ -16,15 +16,15 @@ struct Edge {
     }
 };
 
-// Función para encontrar el representante de un conjunto en el algoritmo de Kruskal
+// FunciÃ³n para encontrar el representante de un conjunto en el algoritmo de Kruskal
 int find(std::vector<int>& parent, int i) {
     if (parent[i] != i)
         parent[i] = find(parent, parent[i]);
     return parent[i];
 }
 
-// Función para unir dos conjuntos en el algoritmo de Kruskal
-void unionSets(std::vector<int>& parent, std::vector<int>& rank, int x, int y) {
+// FunciÃ³n para unir dos conjuntos en el algoritmo de Kruskal
+void union_sets(std::vector<int>& parent, std::vector<int>& rank, int x, int y) {
     int rootX = find(parent, x);
     int rootY = find(parent, y);
     if (rootX != rootY) {
@@ -39,7 +39,7 @@ void unionSets(std::vector<int>& parent, std::vector<int>& rank, int x, int y) {
     }
 }
 
-// Algoritmo de Kruskal para encontrar el árbol de expansión mínima
+// Algoritmo de Kruskal para encontrar el Ã¡rbol de expansiÃ³n mÃ­nima
 std::vector<std::pair<char, char>> kruskalMST(const std::vector<std::vector<double>>& graph) {
     int N = graph.size();
     std::vector<Edge> edges;
@@ -95,7 +95,7 @@ std::pair<double, std::vector<int>> tsp(const std::vector<std::vector<double>>& 
     return { minCost, bestPath };
 }
 
-// Búsqueda de la central más cercana
+// BÃºsqueda de la central mÃ¡s cercana
 std::pair<int, int> findNearestCentral(std::pair<int, int> newHouse, const std::vector<std::pair<int, int>>& centrals) {
     double minDist = std::numeric_limits<double>::max();
     std::pair<int, int> nearestCentral = { -1, -1 };
