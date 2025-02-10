@@ -49,6 +49,18 @@ TEST(NearestCentralTest, BasicTest) {
     ASSERT_EQ(result, expected);
 }
 
+TEST(EdgeTest, CompareEdges) {
+    
+    Edge edge1{ 1, 2, 10.0 };
+    Edge edge2{ 2, 3, 20.0 };
+
+    
+    EXPECT_TRUE(edge1 < edge2);
+
+    
+    EXPECT_FALSE(edge2 < edge1);
+}
+
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
