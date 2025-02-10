@@ -4,8 +4,9 @@
 #include <cmath>
 #include "MetodosTest.h"
 
+
 // Test Kruskal's MST algorithm
-TEST(MetodosTest, KruskalMST) {
+TEST(KruskalTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 2, 0, 6, 0},
         {2, 0, 3, 8, 5},
@@ -26,7 +27,7 @@ TEST(MetodosTest, KruskalMST) {
 }
 
 // Test TSP algorithm
-TEST(MetodosTest, TSP) {
+TEST(TSPTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 10, 15, 20},
         {10, 0, 35, 25},
@@ -35,12 +36,12 @@ TEST(MetodosTest, TSP) {
     };
 
     auto result = tsp(graph);
-    double expectedCost = 80; 
+    double expectedCost = 80; // Known minimum cost for this graph
     ASSERT_NEAR(result.first, expectedCost, 1e-6);
 }
 
 // Test Nearest Central function
-TEST(MetodosTest, FindNearestCentral) {
+TEST(NearestCentralTest, BasicTest) {
     std::vector<std::pair<int, int>> centrals = {
         {200, 500},
         {300, 100},
@@ -50,7 +51,7 @@ TEST(MetodosTest, FindNearestCentral) {
 
     std::pair<int, int> newHouse = { 400, 300 };
     auto result = findNearestCentral(newHouse, centrals);
-    std::pair<int, int> expected = { 450, 150 }; 
+    std::pair<int, int> expected = { 450, 150 };
 
     ASSERT_EQ(result, expected);
 }

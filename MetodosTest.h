@@ -83,6 +83,7 @@ std::pair<double, std::vector<int>> tsp(const std::vector<std::vector<double>>& 
         for (int i = 0; i < N - 1; i++) {
             currentCost += graph[cities[i]][cities[i + 1]];
         }
+
         currentCost += graph[cities[N - 1]][cities[0]];
 
         if (currentCost < minCost) {
@@ -109,4 +110,4 @@ std::pair<int, int> findNearestCentral(std::pair<int, int> newHouse, const std::
     return nearestCentral;
 }
 
-#endif 
+#endif
