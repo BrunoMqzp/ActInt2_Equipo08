@@ -46,7 +46,7 @@ int main() {
     cin >> c; 
 
     // Solución al MST (fibra óptica)
-    auto mst = kruskalMST(distances);
+    auto mst = kruskal_mst(distances);
     cout << "1." << endl;
     for (const auto& edge : mst) {
         cout << "(" << edge.first << ", " << edge.second << ")" << endl;
@@ -64,7 +64,7 @@ int main() {
     cout << "3.\n78" << endl;
 
     // Encontrar la central más cercana
-    auto nearest = findNearestCentral(newHouse, centrals);
+    auto nearest = find_nearest_central(newHouse, centrals);
     cout << "4.\n(" << nearest.first << ", " << nearest.second << ")" << endl;
 
     return 0;
