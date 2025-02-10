@@ -1,6 +1,11 @@
-#include "headertest.h"
 #include <gtest/gtest.h>
+#include <vector>
+#include <utility>
+#include <cmath>
+#include "MetodosTest.h"
 
+
+// Test Kruskal's MST algorithm
 TEST(KruskalTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 2, 0, 6, 0},
@@ -21,6 +26,7 @@ TEST(KruskalTest, BasicTest) {
     ASSERT_EQ(result, expected);
 }
 
+// Test TSP algorithm
 TEST(TSPTest, BasicTest) {
     std::vector<std::vector<double>> graph = {
         {0, 10, 15, 20},
@@ -30,10 +36,11 @@ TEST(TSPTest, BasicTest) {
     };
 
     auto result = tsp(graph);
-    double expectedCost = 80; 
+    double expectedCost = 80; // Known minimum cost for this graph
     ASSERT_NEAR(result.first, expectedCost, 1e-6);
 }
 
+// Test Nearest Central function
 TEST(NearestCentralTest, BasicTest) {
     std::vector<std::pair<int, int>> centrals = {
         {200, 500},

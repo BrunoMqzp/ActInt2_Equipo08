@@ -3,16 +3,21 @@ project(unit_test)
 
 set(CMAKE_CXX_STANDARD 17)
 
+# Incluir los archivos de cabecera
+
 include_directories(${CMAKE_SOURCE_DIR})
 
 set(SOURCES
         main.cpp
-	headertest.h
+        MetodosTest.h
 
 )
 
 
+# Crear el ejecutable para tu código principal
+
 add_executable(main ${SOURCES})
+
 
 # Opciones
 option(ENABLE_TESTING "Enable a Unit Testing build." ON)
@@ -33,15 +38,19 @@ if(ENABLE_TESTING)
     # Archivos de pruebas
     set(TEST_SOURCES
         tests/test.cpp
-	
+
     )
 
-    # Crear ejecutable de pruebas
+# Crear ejecutable de pruebas
+
     add_executable(test_suite ${TEST_SOURCES})
 
     # Enlazar GoogleTest
+
     target_link_libraries(test_suite PRIVATE gtest gtest_main)
 
     # Registrar pruebas con CTest
+
     add_test(NAME AllTests COMMAND test_suite)
+
 endif()
