@@ -1,8 +1,5 @@
-#include <gtest/gtest.h>
-#include <vector>
-#include <utility>
-#include <cmath>
 #include "MetodosTest.h"
+#include <gtest/gtest.h>
 
 // Prueba para kruskalMST
 TEST(MetodosTest, KruskalMST) {
@@ -39,11 +36,10 @@ TEST(MetodosTest, FindNearestCentral) {
         {200, 500}, {300, 100}, {450, 150}, {520, 480}, {400, 300}
     };
 
-    std::pair<int, int> house = { 410, 310 };
+    std::pair<int, int> house = { 410, 310 }; // Modificar para que no coincida con una central
     std::pair<int, int> expected = { 450, 150 };
     auto result = findNearestCentral(house, centrals);
-    //Resultado Esperado
-    EXPECT_EQ(result, expected) << "Nearest central incorrecto. Esperado: " << expected.first << ", " << expected.second << "pero se obtuvo: " << result.first << ", " << result.second;
+    EXPECT_EQ(result, expected) << "Nearest central erroneo, esperado: " << expected.first << ", " << expected.second << " se obtuvo entonces: " << result.first << ", " << result.second;
 }
 
 int main(int argc, char** argv) {
