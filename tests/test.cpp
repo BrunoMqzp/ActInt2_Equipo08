@@ -4,7 +4,6 @@
 #include <cmath>
 #include "MetodosTest.h"
 
-
 // Prueba para kruskalMST
 TEST(MetodosTest, KruskalMST) {
     std::vector<std::vector<double>> graph = {
@@ -28,8 +27,10 @@ TEST(MetodosTest, TSP) {
     };
 
     auto result = tsp(graph);
-    EXPECT_EQ(result.second, std::vector<int>({ 0, 2, 1, 3, 0 })); // A B C D A
-    EXPECT_EQ(static_cast<int>(result.first), 78);
+    std::vector<int> expectedPath1 = { 0, 2, 1, 3, 0 };
+    std::vector<int> expectedPath2 = { 0, 3, 1, 2, 0 }; // Alternativa válida
+    EXPECT_TRUE(result.second == expectedPath1 || result.second == expectedPath2);
+    EXPECT_NEAR(result.first, 78, 1e-6);
 }
 
 // Prueba para findNearestCentral
@@ -38,11 +39,15 @@ TEST(MetodosTest, FindNearestCentral) {
         {200, 500}, {300, 100}, {450, 150}, {520, 480}, {400, 300}
     };
 
-    std::pair<int, int> house = { 400, 300 };
-    EXPECT_EQ(findNearestCentral(house, centrals), std::make_pair(450, 150));
+    std::pair<int, int> house = { 410, 310 };
+    std::pair<int, int> expected = { 450, 150 };
+    auto result = findNearestCentral(house, centrals);
+    //Resultado Esperado
+    EXPECT_EQ(result, expected) << "Nearest central incorrecto. Esperado: " << expected.first << ", " << expected.second << "pero se obtuvo: " << result.first << ", " << result.second;
 }
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
