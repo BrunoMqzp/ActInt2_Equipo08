@@ -39,11 +39,12 @@ TEST(MetodosTest, FindNearestCentral) {
     std::pair<int, int> house = { 410, 310 }; // Modificar para que no coincida con una central
     std::pair<int, int> expected = { 450, 150 };
     auto result = findNearestCentral(house, centrals);
-    EXPECT_EQ(result, expected) << "Nearest central erroneo, esperado: " << expected.first << ", " << expected.second << " se obtuvo entonces: " << result.first << ", " << result.second;
+    EXPECT_EQ(result, expected) << "Nearest central is incorrect. Expected: " << expected.first << ", " << expected.second << " but got: " << result.first << ", " << result.second;
 }
 
 int main(int argc, char** argv) {
     ::testing::InitGoogleTest(&argc, argv);
     return RUN_ALL_TESTS();
 }
+
 
