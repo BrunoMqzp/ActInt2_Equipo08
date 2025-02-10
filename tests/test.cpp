@@ -1,59 +1,47 @@
-#include <gtest/gtest.h>
-#include <vector>
-#include <utility>
-#include <cmath>
 #include "MetodosTest.h"
+#include <gtest/gtest.h>
+#include <algorithm>
 
-
-// Test Kruskal's MST algorithm
-TEST(KruskalTest, BasicTest) {
+// Prueba para kruskalMST
+TEST(MetodosTest, KruskalMST) {
     std::vector<std::vector<double>> graph = {
-        {0, 2, 0, 6, 0},
-        {2, 0, 3, 8, 5},
-        {0, 3, 0, 0, 7},
-        {6, 8, 0, 0, 9},
-        {0, 5, 7, 9, 0}
+        {0, 16, 45, 32},
+        {16, 0, 18, 21},
+        {45, 18, 0, 7},
+        {32, 21, 7, 0}
     };
 
+    std::vector<std::pair<char, char>> expected = { {'C', 'D'}, {'A', 'B'}, {'B', 'C'} };
     auto result = kruskalMST(graph);
-    std::vector<std::pair<char, char>> expected = {
-        {'A', 'B'},
-        {'B', 'C'},
-        {'A', 'D'},
-        {'B', 'E'}
-    };
-
-    ASSERT_EQ(result, expected);
+    EXPECT_TRUE(std::is_permutation(result.begin(), result.end(), expected.begin()));
 }
 
-// Test TSP algorithm
-TEST(TSPTest, BasicTest) {
+// Prueba para tsp
+TEST(MetodosTest, TSP) {
     std::vector<std::vector<double>> graph = {
-        {0, 10, 15, 20},
-        {10, 0, 35, 25},
-        {15, 35, 0, 30},
-        {20, 25, 30, 0}
+        {0, 48, 12, 18},
+        {52, 0, 42, 32},
+        {18, 46, 0, 56},
+        {24, 36, 52, 0}
     };
 
     auto result = tsp(graph);
-    double expectedCost = 80; // Known minimum cost for this graph
-    ASSERT_NEAR(result.first, expectedCost, 1e-6);
+    std::vector<int> expectedPath1 = { 0, 2, 1, 3, 0 };
+    std::vector<int> expectedPath2 = { 0, 3, 1, 2, 0 }; 
+    EXPECT_TRUE(result.second == expectedPath1 || result.second == expectedPath2);
+    EXPECT_NEAR(result.first, 78, 1e-6);
 }
 
-// Test Nearest Central function
-TEST(NearestCentralTest, BasicTest) {
+// Prueba para findNearestCentral
+TEST(MetodosTest, FindNearestCentral) {
     std::vector<std::pair<int, int>> centrals = {
-        {200, 500},
-        {300, 100},
-        {450, 150},
-        {520, 480}
+        {200, 500}, {300, 100}, {450, 150}, {520, 480}, {400, 300}
     };
 
-    std::pair<int, int> newHouse = { 400, 300 };
-    auto result = findNearestCentral(newHouse, centrals);
+    std::pair<int, int> house = { 410, 310 }; 
     std::pair<int, int> expected = { 450, 150 };
-
-    ASSERT_EQ(result, expected);
+    auto result = findNearestCentral(house, centrals);
+    EXPECT_EQ(result, expected) << "Nearest central is incorrect. Expected: " << expected.first << ", " << expected.second << " but got: " << result.first << ", " << result.second;
 }
 
 int main(int argc, char** argv) {
